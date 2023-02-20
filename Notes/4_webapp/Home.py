@@ -2,18 +2,19 @@ import streamlit as st
 
 st.set_page_config(page_title="Home",
                     layout='wide',
-                    page_icon='./images/home.png')
+                    page_icon='./images/para.jpg')
 
-st.title("YOLO V5 Object Detection App")
-st.caption('This web application demostrate Object Detection')
+st.title("Object Detection Web App cf. YOLOv5")
+st.caption('このアプリでは物体認識を体験することができます')
+st.balloons()
 
 # Content
 st.markdown("""
-### This App detects objects from Images
-- Automatically detects 20 objects from image
-- [Click here for App](/YOLO_for_image/)
+### このアプリは、画像から物体を検出します
+- 画像から 20 個のオブジェクトを自動的に検出
+- [Click here for Detail of Object Model](https://github.com/ultralytics/yolov5)
 
-Below give are the object the our model will detect
+モデルが検出するオブジェクトです
 1. Person
 2. Car
 3. Chair
@@ -34,4 +35,5 @@ Below give are the object the our model will detect
 18. Potted Plant
 19. Bird
 20. Dog
+
             """)

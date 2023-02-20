@@ -15,16 +15,14 @@ class YOLO_Pred():
 
         self.labels = data_yaml['names']
         self.nc = data_yaml['nc']
-        
+
         # load YOLO model
         self.yolo = cv2.dnn.readNetFromONNX(onnx_model)
         self.yolo.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
         self.yolo.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
-        
-    
-        
+
     def predictions(self,image):
-        
+        # get the shape of the image
         row, col, d = image.shape
         # get the YOLO prediction from the the image
         # step-1 convert image into square image (array)
@@ -95,20 +93,9 @@ class YOLO_Pred():
             cv2.rectangle(image,(x,y-30),(x+w,y),colors,-1)
 
             cv2.putText(image,text,(x,y-10),cv2.FONT_HERSHEY_PLAIN,0.7,(0,0,0),1)
-            
-            
         return image
-    
-    
+
     def generate_colors(self,ID):
         np.random.seed(10)
         colors = np.random.randint(100,255,size=(self.nc,3)).tolist()
         return tuple(colors[ID])
-        
-        
-    
-    
-    
-
-
-
